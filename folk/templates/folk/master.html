@@ -4,9 +4,11 @@
         <title>Ishlogh</title>
         {% load static %}
         <link rel="stylesheet" href="{% static 'folk/master.css' %}">
-<div id="topbar">
+    </head>
+    <body>
+    <div id="topbar">
     <div id="logo">
-        <h1>Ishlogh</h1>
+        <h1><a href="{% url 'home' %}">Ishlogh</a></h1>
     </div>
     <div id="buttons">
         <a href="{% url 'about' %}" class="button">About</a>
@@ -14,8 +16,6 @@
         <a href="{% url 'upload' %}" class="button">Upload</a>
     </div>
 </div>
-    </head>
-    <body>
         {% block body %}
         {% endblock %}
     </body>
