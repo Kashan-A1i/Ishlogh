@@ -21,9 +21,6 @@
     border: 1px solid #eaeaea;
     cursor:pointer;
 }
-.box:hover {
-    background-color: #eceae19f;
-}
 
 /* 6. Typography Inside the Cards */
 .box h3 {
