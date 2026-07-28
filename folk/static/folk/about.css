@@ -1,0 +1,17 @@
+h1{
+    text-align: center;
+    font-family:Georgia, serif;
+    margin-top:50px;
+}
+h2{
+    text-align: center;
+    font-family: serif,'Times New Roman';
+}
+#body{
+    display: flex;
+    width: 70%;
+    text-align:center;
+    margin:0 auto;
+    font-family: arial,sans-serif;
+    font-weight:50px;
+}

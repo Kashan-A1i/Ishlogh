@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <title>Ishlogh</title>
+        {% load static %}
         <link rel="stylesheet" href="{% static 'folk/master.css' %}">
 <div id="topbar">
     <div id="logo">
@@ -10,7 +11,7 @@
     <div id="buttons">
         <a href="{% url 'about' %}" class="button">About</a>
         <a href="{% url 'login' %}" class="button">Login</a>
-        <a href="{% url 'upload' %}" class button>Upload</a>
+        <a href="{% url 'upload' %}" class="button">Upload</a>
     </div>
 </div>
     </head>

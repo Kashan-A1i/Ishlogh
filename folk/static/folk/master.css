@@ -28,7 +28,7 @@ body {
 }
 
 /* 3. Navigation Buttons */
-.top {
+.button {
     background-color: transparent;
     color: #333; 
     border: none;
@@ -38,8 +38,9 @@ body {
     font-size: 15px;
     font-weight: 500;
     transition: background-color 0.2s ease;
+    text-decoration:none;
 }
 
-.top:hover {
+.button:hover {
     background-color: #f0f0f0; 
 }
