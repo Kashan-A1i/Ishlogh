@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Ishlogh</title>
+        <link rel="stylesheet" href="{% static 'folk/master.css' %}">
+<div id="topbar">
+    <div id="logo">
+        <h1>Ishlogh</h1>
+    </div>
+    <div id="buttons">
+        <a href="{% url 'about' %}" class="button">About</a>
+        <a href="{% url 'login' %}" class="button">Login</a>
+        <a href="{% url 'upload' %}" class button>Upload</a>
+    </div>
+</div>
+    </head>
+    <body>
+        {% block body %}
+        {% endblock %}
+    </body>
+</html>
