@@ -1,0 +1,88 @@
+body {
+    background-image: url("images/log.png") !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    min-height: 100vh;
+}
+
+.box-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 100px);
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.box {
+    max-width: 500px;
+    width: 100%;
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    padding: 30px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translateY(-50px);
+}
+
+.story-title {
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-size: 48px;
+    text-align: center;
+    font-weight: bold;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* Fixed typo: changed 'form p a' to 'form p' and applied CSS Grid */
+form p {
+    display: grid;
+    grid-template-columns: 100px 1fr; /* 100px for labels, 1fr (the rest) for inputs */
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 350px;
+    margin: 10px 0;
+}
+
+form p label {
+    text-align: right;
+    margin: 0; /* Margin removed because 'gap' handles the spacing */
+}
+
+form p input {
+    width: 100%;
+    padding: 6px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid #333;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.login {
+    margin-top: 20px;
+    padding: 8px 24px;
+    cursor: pointer;
+    background-color: white;
+}
+
+.box > p {
+    text-align: center;
+    margin-top: 25px;
+}
+
+#signup {
+    text-decoration: none;
+}
