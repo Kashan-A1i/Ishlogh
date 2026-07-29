@@ -4,15 +4,15 @@
 <link rel="stylesheet" href="{% static 'folk/login.css' %}">
 <div class="box-container">
     <div class="box">
-        <h2 class="story-title">Welcome back!</h2>
-        <form method="POST" action="{% url 'login' %}">
+        <h2 class="story-title">Create an Account</h2>
+        <form method="POST" action="{% url 'signup' %}">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit" class="login">Log In</button>
+            <button type="submit" class="login">Sign Up</button>
             <input type="hidden" name="next" value="{{ next }}">
         </form>
         <p>
-            Don't have an account? <a id= "signup" href="{% url 'signup' %}">Sign Up</a>
+            Already have an account? <a id= "signup" href="{% url 'login' %}">Login</a>
         </p>
     </div>
 </div>

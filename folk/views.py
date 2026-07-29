@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Story
-
+from django.contrib.auth import login
+from .forms import CustomSignupForm
 # Create your views here.
 
 def about(request):
@@ -18,4 +19,16 @@ def home(request):
         'stories' : stories
     }
     return render(request, 'folk/home.html',context)
+
+def signup_view(request):
+    if request.method == 'POST':
+        form = CustomSignupForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('home')
+    else:
+        form = CustomSignupForm()
+        
+    return render(request, 'folk/signup.html', {'form': form})
 
