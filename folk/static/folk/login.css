@@ -99,3 +99,19 @@ form ul,
 form span {
     display: none !important;
 }
+
+.helptext, 
+form span,
+form ul:not(.errorlist) {
+    display: none !important;
+}
+
+ul.errorlist {
+    display: block !important;
+    color: #cc0000; 
+    font-size: 13px;
+    grid-column: 2; 
+    margin: 0 0 5px 0;
+    padding: 0;
+    list-style: none;
+}

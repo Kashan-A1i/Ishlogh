@@ -53,3 +53,12 @@ body {
 .button:hover {
     background-color: #f0f0f0; 
 }
+.profile-pic {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    vertical-align: middle;
+    border: 2px solid #333;
+    cursor: pointer;
+}
