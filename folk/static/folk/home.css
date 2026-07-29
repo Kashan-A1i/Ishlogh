@@ -23,13 +23,13 @@
 }
 
 /* 6. Typography Inside the Cards */
-.box h3 {
+.story-title {
     margin-top: 0;
     margin-bottom: 10px;
     font-size: 20px;
 }
 
-.box h4 {
+.story-excerpt {
     margin-top: 0;
     color: #363535;
     font-weight: 400;
@@ -37,7 +37,7 @@
     flex-grow: 1; 
 }
 
-.box a {
+.box a, .audio-badge, .story-narrator {
     text-decoration: none;
     color: #030303;
     font-weight: 600;

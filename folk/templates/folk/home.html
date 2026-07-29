@@ -3,26 +3,23 @@
 {% block body %}
 <link rel="stylesheet" href="{% static 'folk/home.css' %}">
 <div class="box-container">
-    <div class="box">
-        <h3>Coming soon</h3>
-        <h4>Upload your first story here</h4>
-        <a href="#">Read more</a>
-    </div>
-    <div class="box">
-        <h3>Coming soon</h3>
-        <h4>Upload your second story here</h4>
-        <a href="#">Read more</a>
-    </div>
-    <div class="box">
-        <h3>Coming soon</h3>
-        <h4>Upload your third story here</h4>
-        <a href="#">Read more</a>
-    </div>
-    <div class="box">
-        <h3>Coming soon</h3>
-        <h4>Upload your fourth story here</h4>
-        <a href="#">Read more</a>
-    </div>
+   {% for story in stories %}
+   
+   <div class="box">
+    <h2 class="story-title">{{ story.title }}</h2>
+    <p class="story-excerpt">{{ story.content|truncatewords:20 }}</p>
+    <p class="narrator"> Remembered by {{ story.narrator }}</p>
 
+    {% if story.audio_recording %}
+    <div class="audio-badge">
+        <span>🔊 Audio Available</span>
+    </div>
+    {% endif %}
+    <a href="#" class="read-more">Read More</a>
+   </div>
+   {% empty %}
+        <p>This archive is currently empty. Be the first to share a tale </p>
+   {% endfor %}
 </div>
+    
 {% endblock %}
