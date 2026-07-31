@@ -1,14 +1,204 @@
-.profile {
-    display:flex;
-    flex-direction: column;
-    align-items:center;
-    justify-content: center;
-    width:100%;
-    height: 80vh;
-    margin:0;
+.profile-card {
+    background-color: #f4f0e6;
+    max-width: 700px;
+    width: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 48px;
+    border: 1px solid #4a3e35;
+    border-radius: 2px 255px 3px 225px / 255px 5px 225px 3px;
+    box-shadow: 6px 8px 0px rgba(74, 62, 53, 0.12);
+    box-sizing: border-box;
+    z-index: 100;
 }
+
+.profile {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    grid-template-areas:
+        "pic name"
+        "pic contrib"
+        "tags tags"
+        "bio bio";
+    column-gap: 24px;
+    align-items: center;
+    position: relative;
+}
+
+.edit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-decoration: none;
+}
+
+.edit h4 {
+    margin: 0;
+    background-color: transparent;
+    border: 1px solid #4a3e35;
+    color: #4a3e35;
+    padding: 6px 16px;
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 13px;
+    font-style: italic;
+    font-weight: normal;
+    transition: all 0.2s;
+}
+
+.edit:hover h4 {
+    background-color: #e3d2bc;
+    color: #1a1613;
+}
+
+#username {
+    grid-area: name;
+    margin: 0;
+    align-self: end;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 26px;
+    font-weight: normal;
+    color: #1a1613;
+    letter-spacing: 0.5px;
+}
+
+#contrib {
+    grid-area: contrib;
+    margin: 4px 0 0 0;
+    align-self: start;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 15px;
+    font-style: italic;
+    color: #63564c;
+}
+
 .profile-picture {
-    max-width: 20%;
-    max-height:20%;
-    border-radius: 12px;
+    grid-area: pic;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #e3d2bc;
+    border: 1px solid #4a3e35;
+    padding: 2px;
+}
+
+#langauges {
+    grid-area: tags;
+    margin: 20px 0 0 0;
+    background-color: transparent;
+    border-bottom: 1px dotted #8c7a6b;
+    color: #4a3e35;
+    padding: 0 4px 4px 4px;
+    display: inline-block;
+    justify-self: start;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 13px;
+    font-weight: normal;
+}
+
+#bio {
+    grid-area: bio;
+    margin: 24px 0 32px 0;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #2b2520;
+}
+
+.summary {
+    display: flex;
+    gap: 0;
+    margin-bottom: 32px;
+    border-top: 1px solid #4a3e35;
+    border-bottom: 1px solid #4a3e35;
+}
+
+.summary-box {
+    flex: 1;
+    background-color: transparent;
+    padding: 20px 16px;
+    text-align: center;
+    border-right: 1px solid #4a3e35;
+}
+
+.summary-box:last-child {
+    border-right: none;
+}
+
+.summary-box h3 {
+    margin: 0 0 8px 0;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 22px;
+    font-weight: normal;
+    color: #1a1613;
+}
+
+.summary-box p {
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 13px;
+    font-style: italic;
+    color: #63564c;
+}
+
+.recent-uploads {
+    padding-top: 16px;
+}
+
+.recent-uploads h3 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #4a3e35;
+    margin: 0 0 20px 0;
+    letter-spacing: 1px;
+}
+
+.story-item {
+    margin-bottom: 16px;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 16px;
+    color: #1a1613;
+}
+
+.story-item span::before {
+    content: "—";
+    margin-right: 12px;
+    color: #8c7a6b;
+}
+@media (max-width: 768px) {
+    .profile-card {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        margin: 40px auto;
+        width: 92%;
+        padding: 24px; 
+    }
+
+    .edit {
+        position: relative; 
+        display: inline-block;
+        margin-bottom: 20px;
+    }
+
+    .summary {
+        flex-direction: column; 
+        border-left: 1px solid #4a3e35;
+        border-right: 1px solid #4a3e35;
+    }
+
+    .summary-box {
+        border-right: none;
+        border-bottom: 1px solid #4a3e35;
+        padding: 12px;
+    }
+
+    .summary-box:last-child {
+        border-bottom: none;
+    }
 }

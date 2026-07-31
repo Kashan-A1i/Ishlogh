@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
-from .models import Story
+from .models import Story,UserProfile
 from django.contrib.auth import login as auth_login
 from .forms import CustomSignupForm
 from django.contrib.auth.decorators import login_required
+from .forms import ProfileUpdateForm
 
 # Create your views here.
 
@@ -34,9 +35,31 @@ def signup_view(request):
         form = CustomSignupForm()
         
     return render(request, 'folk/signup.html', {'form': form})
+
 def profile(request):
     user=request.user
+    user_profile, created = UserProfile.objects.get_or_create(user=user)
+    unique_regions_count = Story.objects.filter(uploader=user).values('region').distinct().count()
+    recent_stories = Story.objects.filter(uploader=user)[:3]
     return render(request, 'folk/profile.html', {
-        'user': user
+        'user': user,
+        'user_profile':user_profile,
+        'unique_regions': unique_regions_count,
+        'recent_stories': recent_stories,
     })
+@login_required
+def edit_profile(request):
+    user_profile, created = UserProfile.objects.get_or_create(user=request.user)
+
+    if request.method == 'POST':
+        form = ProfileUpdateForm(request.POST, instance=user_profile)
+        
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
+            
+    else:
+        form = ProfileUpdateForm(instance=user_profile)
+
+    return render(request, 'folk/edit_profile.html', {'form': form})
 

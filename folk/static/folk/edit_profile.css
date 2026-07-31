@@ -1,0 +1,137 @@
+.profile-card {
+    background-color: #f4f0e6;
+    max-width: 600px;
+    width: 100%;
+    margin: 80px auto; 
+    padding: 48px;
+    border: 1px solid #4a3e35;
+    border-radius: 2px 255px 3px 225px / 255px 5px 225px 3px;
+    box-shadow: 6px 8px 0px rgba(74, 62, 53, 0.12);
+    box-sizing: border-box;
+}
+
+.edit-title {
+    margin: 0 0 32px 0;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 28px;
+    color: #1a1613;
+    font-weight: normal;
+    border-bottom: 2px dotted #8c7a6b;
+    padding-bottom: 16px;
+}
+
+.edit-form p {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+}
+
+.edit-form label {
+    margin-bottom: 8px;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 15px;
+    font-weight: bold;
+    color: #4a3e35;
+    letter-spacing: 0.5px;
+}
+
+.edit-form input[type="text"],
+.edit-form textarea {
+    padding: 12px 16px;
+    border: 1px solid #8c7a6b;
+    border-radius: 2px 15px 3px 15px / 15px 5px 15px 3px; 
+    background-color: transparent;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 16px;
+    color: #1a1613;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.edit-form input[type="text"]:focus,
+.edit-form textarea:focus {
+    border-color: #4a3e35;
+    background-color: #e3d2bc;
+    box-shadow: 2px 3px 0px rgba(74, 62, 53, 0.1);
+}
+
+.edit-form textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.6;
+}
+
+.edit-form .helptext {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 13px;
+    font-style: italic;
+    color: #63564c;
+    margin-top: 8px;
+}
+
+.button-group {
+    display: flex;
+    gap: 16px;
+    margin-top: 40px;
+}
+
+.save-btn {
+    background-color: #4a3e35;
+    color: #f4f0e6;
+    padding: 12px 28px;
+    border: 1px solid #4a3e35;
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 15px;
+    font-weight: normal;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 3px 4px 0px rgba(74, 62, 53, 0.2);
+}
+
+.save-btn:hover {
+    background-color: #1a1613;
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 5px 0px rgba(74, 62, 53, 0.2);
+}
+
+.cancel-btn {
+    background-color: transparent;
+    color: #4a3e35;
+    padding: 12px 24px;
+    text-decoration: none;
+    border: 1px solid #4a3e35;
+    border-radius: 15px 255px 15px 225px / 225px 15px 255px 15px;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 15px;
+    font-style: italic;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cancel-btn:hover {
+    background-color: #e3d2bc;
+    color: #1a1613;
+}
+
+@media (max-width: 768px) {
+    .profile-card {
+        margin: 32px auto;
+        width: 92%;
+        padding: 24px;
+        border-radius: 2px 100px 3px 100px / 100px 5px 100px 3px;
+    }
+
+    .button-group {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .save-btn, .cancel-btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+}

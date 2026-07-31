@@ -2,9 +2,43 @@
 {% load static %}
 {% block body %}
 <link rel="stylesheet" href="{% static 'folk/profile.css' %}">
-<div class="profile">
-    <img src="{% static 'folk/images/profile.png' %}" alt="Profile" class="profile-picture">
-    <h2 id="username">{{ user.first_name }} {{ user.last_name }}</h2>
+
+<div class="profile-card"> 
+
+    <div class="profile">
+        <img src="{% static 'folk/images/profile.png' %}" alt="Profile" class="profile-picture">
+        <h2 id="username">{{ user.first_name }} {{ user.last_name }}</h2>
+        <h4 id="contrib">Contributor from {{ user_profile.location }}</h4>
+        <h4 id="langauges">{{ user_profile.languages }}</h4>
+        <h4 id="bio">{{ user_profile.bio }}</h4>
+        <a href="{% url 'edit_profile' %}" class= "edit"><h4>Edit Profile</h4></a>
+    </div>
+
+<div class="summary">
+    <div class="summary-box">
+        <h3>{{ user.stories.count }}</h3>
+        <p>Stories</p>
+    </div>
+    <div class="summary-box">
+        <h3>{{ unique_regions }}</h3>
+        <p>Regions</p>
+    </div>
+    <div class="summary-box">
+        <h3>{{ user.date_joined|date:"Y" }}</h3>
+        <p>Joined</p>
+    </div>
+</div>
+<div class="recent-uploads">
+    <h3>Recent Uploads</h3>
+    {% for story in recent_stories %}
+        <div class="story-item">
+            <span>{{ story.title }}</span>
+        </div>
+    {% empty %}
+        <div class="story-item">
+            <span>No stories uploaded yet.</span>
+        </div>
+    {% endfor %}
 </div>
 
 {% endblock %}

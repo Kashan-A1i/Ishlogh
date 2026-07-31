@@ -37,10 +37,15 @@ body {
 
 .story-title {
     margin-top: 0;
-    margin-bottom: 10px;
+    margin-bottom: 24px;
+    font-family: Georgia, 'Times New Roman', serif;
     font-size: 36px;
     text-align: center;
-    font-weight: bold;
+    font-weight: normal;
+    color: #1a1613;
+    border-bottom: 2px dotted #8c7a6b;
+    padding-bottom: 16px;
+    width: 100%;
 }
 
 form {
@@ -57,7 +62,7 @@ form p {
     gap: 10px;
     width: 100%;
     max-width: 420px;
-    margin: 4px 0;
+    margin: 12px 0;
     transform: translateX(-35px);
 }
 
@@ -65,33 +70,75 @@ form p label {
     text-align: right;
     margin: 0;
     white-space: nowrap;
+    font-family: Georgia, 'Times New Roman', serif;
     font-size: 15px;
+    font-weight: bold;
+    color: #4a3e35;
+    letter-spacing: 0.5px;
 }
 
 form p input {
     width: 100%;
-    padding: 5px;
-    background-color: rgba(255, 255, 255, 0.5);
-    border: 1px solid #333;
-    border-radius: 4px;
+    padding: 10px 14px;
+    background-color: rgba(250, 248, 245, 0.7);
+    border: 1px solid #8c7a6b;
+    border-radius: 2px 15px 3px 15px / 15px 5px 15px 3px;
     box-sizing: border-box;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 16px;
+    color: #1a1613;
+    outline: none;
+    transition: all 0.2s;
+}
+
+form p input:focus {
+    border-color: #4a3e35;
+    background-color: #e3d2bc;
+    box-shadow: 2px 3px 0px rgba(74, 62, 53, 0.1);
 }
 
 .login {
-    margin-top: 10px;
-    padding: 6px 24px;
+    margin-top: 24px;
+    background-color: #4a3e35;
+    color: #f4f0e6;
+    padding: 12px 32px;
+    border: 1px solid #4a3e35;
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 15px;
+    font-weight: normal;
     cursor: pointer;
-    background-color: white;
+    transition: all 0.2s;
+    box-shadow: 3px 4px 0px rgba(74, 62, 53, 0.2);
+}
+
+.login:hover {
+    background-color: #1a1613;
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 5px 0px rgba(74, 62, 53, 0.2);
 }
 
 .box > p {
     text-align: center;
-    margin-top: 15px;
-    font-size: 15px;
+    margin-top: 24px;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 14px;
+    color: #63564c;
+    font-style: italic;
 }
 
 #signup {
+    color: #4a3e35;
     text-decoration: none;
+    border-bottom: 1px dotted #8c7a6b;
+    font-weight: bold;
+    font-style: normal;
+    transition: all 0.2s;
+}
+
+#signup:hover {
+    color: #1a1613;
+    border-bottom: 1px solid #1a1613;
 }
 
 .helptext, 
@@ -108,10 +155,41 @@ form ul:not(.errorlist) {
 
 ul.errorlist {
     display: block !important;
-    color: #cc0000; 
+    color: #b33939;
+    font-family: Georgia, 'Times New Roman', serif;
     font-size: 13px;
+    font-style: italic;
     grid-column: 2; 
     margin: 0 0 5px 0;
     padding: 0;
     list-style: none;
+}
+
+@media (max-width: 768px) {
+    body {
+        overflow: auto; 
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .box {
+        transform: none; 
+        padding: 20px;
+    }
+
+    form p {
+        grid-template-columns: 1fr; 
+        transform: none; 
+        max-width: 100%;
+    }
+
+    form p label {
+        text-align: left;
+        margin-bottom: 6px;
+        white-space: normal; 
+    }
+
+    ul.errorlist {
+        grid-column: 1; 
+    }
 }
