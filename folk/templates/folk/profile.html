@@ -1,0 +1,10 @@
+{% extends 'folk/master.html' %}
+{% load static %}
+{% block body %}
+<link rel="stylesheet" href="{% static 'folk/profile.css' %}">
+<div class="profile">
+    <img src="{% static 'folk/images/profile.png' %}" alt="Profile" class="profile-picture">
+    <h2 id="username">{{ user.first_name }} {{ user.last_name }}</h2>
+</div>
+
+{% endblock %}

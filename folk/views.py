@@ -34,4 +34,9 @@ def signup_view(request):
         form = CustomSignupForm()
         
     return render(request, 'folk/signup.html', {'form': form})
+def profile(request):
+    user=request.user
+    return render(request, 'folk/profile.html', {
+        'user': user
+    })
 

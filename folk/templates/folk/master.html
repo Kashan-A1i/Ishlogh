@@ -14,7 +14,7 @@
         <a href="{% url 'upload' %}" class="button">Upload</a>
         <a href="{% url 'about' %}" class="button">About</a>
         {% if user.is_authenticated %}
-        <a href="#">
+        <a href="{% url 'profile' %}">
             <img src="{% static 'folk/images/profile.png' %}" alt="Profile" class="profile-pic">
         </a>
         {% else %}
