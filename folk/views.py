@@ -3,7 +3,7 @@ from .models import Story,UserProfile
 from django.contrib.auth import login as auth_login
 from .forms import CustomSignupForm
 from django.contrib.auth.decorators import login_required
-from .forms import ProfileUpdateForm
+from .forms import ProfileUpdateForm,StoryForm
 
 # Create your views here.
 
@@ -12,7 +12,17 @@ def about(request):
 
 @login_required
 def upload(request):
-    return render(request,"folk/upload.html")
+    if request.method == 'POST':
+        form = StoryForm(request.POST, request.FILES) 
+        
+        if form.is_valid():
+            new_story = form.save(commit=False) 
+            new_story.uploader = request.user 
+            new_story.save() 
+            return redirect('home') 
+    else:
+        form = StoryForm()
+    return render(request, 'folk/upload.html', {'form': form})
 
 def login(request):
     pass

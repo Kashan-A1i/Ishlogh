@@ -1,4 +1,50 @@
 {% extends "folk/master.html" %}
+{% load static %}
 {% block body %}
+<link rel="stylesheet" href="{% static 'folk/upload.css' %}">
+<div class="upload-container">
+    <div class="upload-card">
+        <h1 class="upload-title">Archive a Story</h1>
+        <p class="upload-subtitle">Preserve a tale, myth, or legend for the Ishlogh archive.</p>
+        
+        <form method="post" enctype="multipart/form-data" class="upload-form">
+            {% csrf_token %}
+            
+            <p>
+                <label for="id_title">Story Title:</label>
+                {{ form.title }}
+                <span class="helptext">The name of the tale, myth, or legend</span>
+            </p>
 
+            <p>
+                <label for="id_narrator">Narrator:</label>
+                {{ form.narrator }}
+                <span class="helptext">The person who told, or remembered the story</span>
+            </p>
+
+            <p>
+                <label for="id_region">Region / Village:</label>
+                {{ form.region }}
+                <span class="helptext">The region or village this story is from (e.g., Mastuj)</span>
+            </p>
+            
+            <p>
+                <label for="id_content">The Story:</label>
+                {{ form.content }}
+                <span class="helptext">The full text of the story</span>
+            </p>
+            
+            <p class="file-upload">
+                <label for="id_audio_recording">Audio Recording (Optional):</label>
+                {{ form.audio_recording }}
+                <span class="helptext">Optional voice recording of the story</span>
+            </p>
+            
+            <div class="button-group">
+                <button type="submit" class="save-btn">Archive Story</button>
+                <a href="{% url 'home' %}" class="cancel-btn">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
 {% endblock %}

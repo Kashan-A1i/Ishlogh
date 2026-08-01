@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import UserProfile
+from .models import UserProfile,Story
 
 class CustomSignupForm(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -21,3 +21,7 @@ class ProfileUpdateForm(forms.ModelForm):
             'languages': 'Languages',
             'bio': 'About You',
         }
+class StoryForm(forms.ModelForm):
+    class Meta:
+        model = Story
+        fields = ['title', 'narrator', 'region', 'content', 'audio_recording']
