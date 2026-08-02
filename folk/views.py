@@ -4,6 +4,7 @@ from django.contrib.auth import login as auth_login
 from .forms import CustomSignupForm
 from django.contrib.auth.decorators import login_required
 from .forms import ProfileUpdateForm,StoryForm
+from django.contrib import messages
 
 # Create your views here.
 
@@ -57,6 +58,7 @@ def profile(request):
         'unique_regions': unique_regions_count,
         'recent_stories': recent_stories,
     })
+
 @login_required
 def edit_profile(request):
     user_profile, created = UserProfile.objects.get_or_create(user=request.user)
@@ -72,8 +74,28 @@ def edit_profile(request):
         form = ProfileUpdateForm(instance=user_profile)
 
     return render(request, 'folk/edit_profile.html', {'form': form})
+
 def view_story(request,story_id):
     story=get_object_or_404(Story,id=story_id)
     return render(request, 'folk/story.html',{
         'story':story
     })
+
+@login_required
+def delete_story(request, id):
+    story = get_object_or_404(Story, id=id)
+
+    if story.uploader != request.user:
+        messages.error(request, "You do not have permission to delete this story.")
+        return redirect('view_story', story.id)
+
+    if not story.can_be_deleted:
+        messages.error(request, "The 24-hour deletion window for this story has closed.")
+        return redirect('view_story', story.id)
+
+    if request.method == 'POST':
+        story.delete()
+        messages.success(request, "The story has been permanently removed.")
+        return redirect('profile')
+
+    return render(request, 'folk/confirm_delete.html', {'story': story})

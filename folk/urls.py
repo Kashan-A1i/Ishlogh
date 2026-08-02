@@ -12,4 +12,5 @@ urlpatterns=[
     path('profile/',views.profile, name='profile'),
     path('profile/edit/', views.edit_profile, name='edit_profile'),
     path('story/<int:story_id>/',views.view_story,name='view_story'),
+    path('story/<int:id>/delete/', views.delete_story, name='delete_story'),
 ]

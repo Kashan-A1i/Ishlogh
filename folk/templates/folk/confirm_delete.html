@@ -1,0 +1,22 @@
+{% extends 'folk/master.html' %}
+{% load static %}
+{% block body %}
+<link rel="stylesheet" href="{% static 'folk/confirm_delete.css' %}"
+<div class="confirmation-wrapper">
+    <div class="confirmation-card">
+        <h2>Delete Story?</h2>
+        <p>You are about to permanently delete <strong>"{{ story.title }}"</strong> (Told by: {{ story.narrator }}).</p>
+        
+        <p class="warning-text">
+             This action cannot be undone. Once deleted, this piece of folklore will be permanently removed from the Ishlogh archive.
+        </p>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="button-group">
+                <a href="{% url 'view_story' story.id %}" class="btn-cancel">Cancel</a>
+                <button type="submit" class="btn-delete">Yes, Delete Story</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

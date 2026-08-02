@@ -2,19 +2,21 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-
+from django.utils import timezone
+from datetime import timedelta
 # Create your models here.
+
 class Story(models.Model):
-    title = models.CharField(max_length = 255, help_text = "The name of the tale,myth, or legend")
-    content = models.TextField(help_text = "The full text of the Story here")
-    narrator = models.CharField(max_length = 255 , help_text = "The person who told, or remembered the story")
-    uploader = models.ForeignKey(User, on_delete=models.CASCADE,related_name="stories",help_text="The user that uploaded this story")
+    title = models.CharField(max_length=255, help_text="The name of the tale, myth, or legend")
+    content = models.TextField(help_text="The full text of the Story here")
+    narrator = models.CharField(max_length=255, help_text="The person who told, or remembered the story")
+    uploader = models.ForeignKey(User, on_delete=models.CASCADE, related_name="stories", help_text="The user that uploaded this story")
     region = models.CharField(max_length=100, help_text="The region or village this story is from (e.g., Mastuj)")
     audio_recording = models.FileField(
-        upload_to = 'audio/stories',
-        null = True,
-        blank = True,
-        help_text = 'Optional voice recording of the story'
+        upload_to='audio/stories',
+        null=True,
+        blank=True,
+        help_text='Optional voice recording of the story'
     )
 
     created_at = models.DateTimeField(auto_now_add=True)
@@ -26,6 +28,11 @@ class Story(models.Model):
 
     def __str__(self):
         return f"{self.title} (Told by: {self.narrator})"
+
+    @property
+    def can_be_deleted(self):
+        limit = self.created_at + timedelta(hours=24)
+        return timezone.now() < limit
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE,related_name="profile")

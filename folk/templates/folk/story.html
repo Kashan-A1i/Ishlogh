@@ -13,5 +13,14 @@
         <span>Uploaded by: {{ story.uploader }}</span>
         <span>A tale from {{ story.region }} </span>
     </div>
+    
+    {% if request.user == story.uploader and story.can_be_deleted %}
+        <a href="{% url 'delete_story' story.id %}" class="btn-delete">Delete Story</a>
+        
+    {% elif request.user == story.uploader %}
+        <p class="text-muted text-sm">
+            <em>The 24-hour deletion window for this story has closed. Contact an admin if you need this removed.</em>
+        </p>
+    {% endif %}
 </article>
 {% endblock %}

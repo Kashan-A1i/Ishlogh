@@ -59,6 +59,40 @@
     font-size: 10px;
 }
 
+.btn-delete {
+    display: block;
+    width: max-content;
+    margin: 32px auto 0 auto;
+    background-color: transparent;
+    color: #b33939; 
+    padding: 8px 24px;
+    text-decoration: none;
+    border: 1px dashed #b33939;
+    border-radius: 15px 255px 15px 225px / 225px 15px 255px 15px;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 14px;
+    font-style: italic;
+    transition: all 0.2s;
+    text-align: center;
+}
+
+.btn-delete:hover {
+    background-color: rgba(179, 57, 57, 0.08); 
+    color: #8a2a2a;
+    border-style: solid;
+}
+
+.text-muted.text-sm {
+    display: block;
+    margin: 32px auto 0 auto;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 13px;
+    color: #8c7a6b;
+    max-width: 400px;
+    line-height: 1.5;
+}
+
 @media (max-width: 768px) {
     .story-content {
         margin: 32px auto;
