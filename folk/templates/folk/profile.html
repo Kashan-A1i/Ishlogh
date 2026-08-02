@@ -39,6 +39,9 @@
             <span>No stories uploaded yet.</span>
         </div>
     {% endfor %}
+        <a href="{% url 'story_list' %}" class="view-all-btn">
+            View all uploaded stories
+        </a>
 </div>
 
 {% endblock %}

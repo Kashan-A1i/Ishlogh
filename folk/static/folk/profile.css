@@ -12,6 +12,8 @@
     box-shadow: 6px 8px 0px rgba(74, 62, 53, 0.12);
     box-sizing: border-box;
     z-index: 100;
+    max-height: calc(100vh - 160px);
+    overflow-y: auto;
 }
 
 .profile {
@@ -97,6 +99,8 @@
     font-family: Georgia, 'Times New Roman', serif;
     font-size: 13px;
     font-weight: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 #bio {
@@ -106,6 +110,8 @@
     font-size: 16px;
     line-height: 1.8;
     color: #2b2520;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 .summary {
@@ -169,6 +175,27 @@
     margin-right: 12px;
     color: #8c7a6b;
 }
+.view-all-btn {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 8px 24px;
+    border: 1px solid #8c7a6b;
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+    background-color: transparent;
+    color: #4a3e35;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 14px;
+    font-style: italic;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.view-all-btn:hover {
+    background-color: #e3d2bc;
+    color: #1a1613;
+    border-color: #4a3e35;
+}
+
 @media (max-width: 768px) {
     .profile-card {
         position: relative;
@@ -177,17 +204,18 @@
         transform: none;
         margin: 40px auto;
         width: 92%;
-        padding: 24px; 
+        padding: 24px;
+        max-height: none; 
     }
 
     .edit {
-        position: relative; 
+        position: relative;
         display: inline-block;
         margin-bottom: 20px;
     }
 
     .summary {
-        flex-direction: column; 
+        flex-direction: column;
         border-left: 1px solid #4a3e35;
         border-right: 1px solid #4a3e35;
     }

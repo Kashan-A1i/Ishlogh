@@ -1,0 +1,37 @@
+{% extends 'folk/master.html' %}
+{% load static %}
+{% block body %}
+<link rel="stylesheet" href="{% static 'folk/story_list.css' %}">
+
+<div class="all-stories-container">
+    
+    <h2 class="all-stories-header">
+        My Uploaded Stories
+    </h2>
+
+    <div class="stories-list">
+        {% for story in stories %}
+            <div class="story-list-item">
+                <span class="story-dash">—</span>
+                
+                <a href="{% url 'view_story' story.id %}" class="story-link">
+                    {{ story.title }}
+                </a>
+                
+                <span class="story-date">
+                    ({{ story.created_at|date:"M d, Y" }})
+                </span>
+            </div>
+        {% empty %}
+            <p class="empty-stories">You haven't uploaded any stories yet.</p>
+        {% endfor %}
+    </div>
+
+    <div class="back-btn-container">
+        <a href="javascript:history.back()" class="back-btn">
+            &larr; Back to Profile
+        </a>
+    </div>
+
+</div>
+{% endblock %}

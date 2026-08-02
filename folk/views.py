@@ -99,3 +99,12 @@ def delete_story(request, id):
         return redirect('profile')
 
     return render(request, 'folk/confirm_delete.html', {'story': story})
+
+@login_required
+def story_list(request):
+    stories = Story.objects.filter(uploader=request.user).order_by('-created_at') 
+    
+    context = {
+        'stories': stories,
+    }
+    return render(request, 'folk/story_list.html', context)

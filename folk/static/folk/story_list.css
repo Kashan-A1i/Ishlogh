@@ -1,0 +1,83 @@
+.all-stories-container {
+    max-width: 700px;
+    margin: 60px auto;
+    padding: 48px;
+    background-color: #f4f0e6;
+    border: 1px solid #4a3e35;
+    border-radius: 2px 255px 3px 225px / 255px 5px 225px 3px;
+    box-shadow: 6px 8px 0px rgba(74, 62, 53, 0.12);
+    font-family: Georgia, 'Times New Roman', serif;
+    box-sizing: border-box;
+}
+
+.all-stories-header {
+    color: #1a1613;
+    font-size: 26px;
+    font-weight: normal;
+    border-bottom: 1px solid #4a3e35;
+    padding-bottom: 16px;
+    margin-top: 0;
+    letter-spacing: 0.5px;
+}
+
+.stories-list {
+    margin-top: 24px;
+}
+
+.story-list-item {
+    margin-bottom: 16px;
+    font-size: 16px;
+    color: #1a1613;
+}
+
+.story-dash {
+    color: #8c7a6b;
+    margin-right: 12px;
+}
+
+.story-link {
+    text-decoration: none;
+    color: #2b2520;
+    font-weight: bold;
+}
+
+.story-link:hover {
+    text-decoration: underline;
+}
+
+.story-date {
+    font-size: 13px;
+    color: #63564c;
+    font-style: italic;
+    margin-left: 10px;
+}
+
+.empty-stories {
+    color: #63564c;
+    font-style: italic;
+    font-size: 15px;
+}
+
+.back-btn-container {
+    margin-top: 32px;
+    border-top: 1px solid #4a3e35;
+    padding-top: 20px;
+}
+
+.back-btn {
+    display: inline-block;
+    padding: 6px 16px;
+    border: 1px solid #4a3e35;
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+    background-color: transparent;
+    color: #4a3e35;
+    font-size: 13px;
+    font-style: italic;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.back-btn:hover {
+    background-color: #e3d2bc;
+    color: #1a1613;
+}

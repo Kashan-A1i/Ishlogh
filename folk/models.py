@@ -37,7 +37,7 @@ class Story(models.Model):
 class UserProfile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE,related_name="profile")
     location = models.CharField(max_length=100,blank=True,help_text="e.g. ,Mastuj ,Chitral")
-    bio = models.TextField(blank=True, help_text = "A short description about yourself/contributor")
+    bio = models.TextField(max_length=500,blank=True, help_text = "A short description about yourself/contributor")
     languages = models.CharField(max_length=100, blank=True, help_text="e.g., Khowar, Urdu")
     def __str__(self):
         return f"{self.user.first_name} {self.user.last_name}"
