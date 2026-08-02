@@ -12,14 +12,15 @@
     width: 100%;
     aspect-ratio: 4 / 3; 
     border-radius: 12px;
-    background-color: #ffffff9f;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
+    background-color: #f4f0e6;
     padding: 30px;
     box-sizing: border-box; 
     display: flex;
     flex-direction: column;
-    border: 1px solid #eaeaea;
     cursor:pointer;
+    border: 1px solid #4a3e35;
+    border-radius: 2px 255px 3px 225px / 255px 5px 225px 3px;
+    box-shadow: 6px 8px 0px rgba(74, 62, 53, 0.12);
 }
 
 /* 6. Typography Inside the Cards */
@@ -51,14 +52,24 @@
     align-self: flex-start;
     margin-bottom: 15px;
 }
-.read-more {
-    display: inline-block;
-    margin-top: 5px; 
+.read-more { 
     text-decoration: none;
     color: #030303;
     font-weight: 600;
     font-size: 14px;
+    transition-duration: 0.2s;
 }
 .read-more:hover {
-    text-decoration: underline;
+    padding:31px;
+    transition-duration: 0.2s;
+}
+@media(max-width:786px){
+    .box-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 10px; 
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto; 
+    }
 }

@@ -1,0 +1,17 @@
+{% extends "folk/master.html" %}
+{% load static %}
+{% block body %}
+<link rel="stylesheet" href="{% static 'folk/story.css' %}">
+<article class="story-content">
+    <h1 class="title">{{ story.title }}</h1>
+    <div class="story-body">
+        {{ story.content|linebreaks }}
+    </div>
+    <div class="story-metadata">
+        <span>Told by: {{ story.narrator }}</span>
+        <span>Cataloged: {{ story.created_at }}</span>
+        <span>Uploaded by: {{ story.uploader }}</span>
+        <span>A tale from {{ story.region }} </span>
+    </div>
+</article>
+{% endblock %}

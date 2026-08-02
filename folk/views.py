@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect,get_object_or_404
 from .models import Story,UserProfile
 from django.contrib.auth import login as auth_login
 from .forms import CustomSignupForm
@@ -72,4 +72,8 @@ def edit_profile(request):
         form = ProfileUpdateForm(instance=user_profile)
 
     return render(request, 'folk/edit_profile.html', {'form': form})
-
+def view_story(request,story_id):
+    story=get_object_or_404(Story,id=story_id)
+    return render(request, 'folk/story.html',{
+        'story':story
+    })
