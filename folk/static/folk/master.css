@@ -62,25 +62,28 @@ body {
     border: 2px solid #333;
     cursor: pointer;
 }
-@media screen and (max-width: 768px) {
-    #topbar {
-        padding: 10px 15px;
-        flex-direction: column;
-        gap: 15px;
-        align-items: flex-start;
-    }
+@media (max-width: 768px) {
+  #topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
 
-    #logo h1 {
-        font-size: 20px;
-    }
-    #buttons {
-        width: 100%;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-        gap: 8px;
-    }
-    .button {
-        font-size: 14px;
-        padding: 6px 12px;
+  #logo h1 {
+    font-size: 20px;
+  }
+
+  #buttons {
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .button {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+  body {
+        background-image: none;
+        background-color: #fff;
     }
 }
