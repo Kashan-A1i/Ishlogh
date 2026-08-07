@@ -27,6 +27,7 @@ def ping_view(request):
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('folk/',include('folk.urls')),
+    path('', include('folk.urls')),
     path('ping/', ping_view),
 ]
 if settings.DEBUG:
