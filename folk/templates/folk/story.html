@@ -7,6 +7,16 @@
     <div class="story-body">
         {{ story.content|linebreaks }}
     </div>
+    {% if story.audio_recording %}
+    <div class="audio">
+        <P><strong>Listen to the Story: </strong></P>
+        <audio controls controlsList="nodownload noplaybackrate">
+            <source src="{{ story.audio_recording.url }}" type="audio/mpeg">
+            <source src="{{ story.audio_recording.url }}" type="audio/ogg">
+            <source src="{{ story.audio_recording.url }}" type="audio/wav">
+        </audio>
+    </div>
+    {% endif %}
     <div class="story-metadata">
         <span>Told by: {{ story.narrator }}</span>
         <span>Cataloged: {{ story.created_at }}</span>

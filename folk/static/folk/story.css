@@ -92,6 +92,38 @@
     max-width: 400px;
     line-height: 1.5;
 }
+.audio {
+    margin: 48px auto;
+    padding: 24px 32px;
+    max-width: 500px;
+    background-color: rgba(140, 122, 107, 0.08);
+    border: 1px dashed #8c7a6b;
+    border-radius: 15px 225px 15px 255px / 255px 15px 225px 15px; 
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.audio p {
+    font-family: Georgia, 'Times New Roman', serif;
+    color: #4a3e35;
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 16px;
+    text-indent: 0;
+}
+
+.audio p strong {
+    font-weight: normal;
+    font-style: italic;
+}
+
+.audio audio {
+    width: 100%;
+    max-width: 400px;
+    outline: none;
+    filter: sepia(30%) hue-rotate(340deg) saturate(80%); 
+    border-radius: 30px; 
+}
 
 @media (max-width: 768px) {
     .story-content {
