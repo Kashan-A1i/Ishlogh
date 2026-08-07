@@ -62,32 +62,3 @@ body {
     border: 2px solid #333;
     cursor: pointer;
 }
-@media (max-width: 768px) {
-  #topbar {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 10px 12px;
-    gap: 8px;
-  }
-
-  #buttons {
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-
-  .button {
-    padding: 6px 10px;
-    font-size: 14px;
-  }
-
-  /* avoid very tall empty-state on short screens */
-  .empty-state {
-    min-height: calc(100vh - 64px);
-    padding: 18px;
-  }
-}
-
-/* ensure no horizontal overflow */
-html, body {
-  overflow-x: hidden;
-}
